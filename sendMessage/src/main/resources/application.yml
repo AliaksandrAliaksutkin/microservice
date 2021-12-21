@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: send-message-service
+host:
+  name: localhost
+
+queue:
+  name: queue1
