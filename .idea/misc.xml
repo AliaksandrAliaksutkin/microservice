@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/sendMessage/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/zuulGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/toAcceptMessage/pom.xml" />
       </list>
     </option>
   </component>
