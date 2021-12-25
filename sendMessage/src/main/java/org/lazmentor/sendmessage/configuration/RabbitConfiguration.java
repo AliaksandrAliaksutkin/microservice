@@ -1,25 +1,23 @@
-package org.lazmentor.sendmessage.config;
+package org.lazmentor.sendmessage.configuration;
 
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@EnableRabbit
 @Configuration
 public class RabbitConfiguration {
-    @Value("${host.name}")
-    private String host;
-    @Value("${queue.name}")
-    private String queue;
 
+    //настраиваем соединение с RabbitMQ
     @Bean
     public ConnectionFactory connectionFactory() {
-        return new CachingConnectionFactory(host);
+        return new CachingConnectionFactory("localhost");
     }
 
     @Bean
@@ -32,8 +30,9 @@ public class RabbitConfiguration {
         return new RabbitTemplate(connectionFactory());
     }
 
+    //объявляем очередь с именем queue1
     @Bean
     public Queue myQueue1() {
-        return new Queue(queue);
+        return new Queue("queue1");
     }
 }

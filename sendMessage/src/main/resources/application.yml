@@ -3,10 +3,8 @@ server:
 
 spring:
   application:
-    name: send-message-service
-host:
-  name: localhost
-
-queue:
-  name: queue1
-
+    name: sendMessage
+eureka:
+  server:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

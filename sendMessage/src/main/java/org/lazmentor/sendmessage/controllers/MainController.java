@@ -4,17 +4,20 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
-@Log
 @RestController
+@Log
+@RequiredArgsConstructor
+@RequestMapping("/hello")
 public class MainController {
 
     private final AmqpTemplate amqpTemplate;
-    @GetMapping()
-    public String sendMess(){
-        amqpTemplate.convertAndSend("queue1", "Hello");
+
+    public String sendMessage() {
+        log.info("Emit to queue1");
+        amqpTemplate.convertAndSend("queue1", "HelloMessage");
         return "Hello";
     }
 }

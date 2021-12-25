@@ -6,14 +6,16 @@ spring:
     name: zuulGateway
 
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true
+  sensitive-headers:
   routes:
-    sendMessage-service:
-      path: /sendMessage-service/**
-      serviceId: sendMessage
-#      url:
+    sendMessage:
+#      path: /sendmessage/**
+      serviceId: send-message
 #      stripPrefix: true
-
-##    name1:
-#      path:
-#      serviceId:
-#      stripPrefix:
+    toAcceptMessage:
+      path: /acceptmessage/**
+      serviceId: to-accept-message
+      stripPrefix: true
