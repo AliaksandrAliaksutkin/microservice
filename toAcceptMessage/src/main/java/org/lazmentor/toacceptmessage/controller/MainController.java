@@ -12,9 +12,9 @@ public class MainController {
 
     private final HelloService helloService;
 
-    @GetMapping("accept")
+    @GetMapping("/accepthello")
     public String getCount(){
-        return "Hello accepted " + helloService.getCount() + "once";
+        return "Hello accepted " + helloService.getCount() + " once";
     }
 
 }

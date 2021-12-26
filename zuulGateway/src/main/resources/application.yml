@@ -17,9 +17,9 @@ zuul:
     eager-load:
       enabled: true
   sensitive-headers:
-  routes:
 
-    sendMessage:
+  routes:
+   sendMessage:
       path: /send/**
       serviceId: send-message
       stripPrefix: true

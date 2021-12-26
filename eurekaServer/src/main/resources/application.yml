@@ -5,7 +5,7 @@ server:
   port: 8761
 eureka:
   instance:
-    instance-id: eureka-server
+    instance-id: eureka-server-service
   client:
     registerWithEureka: true
     fetchRegistry: false

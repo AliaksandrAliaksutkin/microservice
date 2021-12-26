@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Log
 @RequiredArgsConstructor
-@RequestMapping("/hello")
+
 public class MainController {
 
     private final AmqpTemplate amqpTemplate;
 
+    @GetMapping("/hello")
     public String sendMessage() {
         log.info("Emit to queue1");
         amqpTemplate.convertAndSend("queue1", "HelloMessage");
