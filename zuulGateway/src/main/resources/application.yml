@@ -3,7 +3,14 @@ server:
 
 spring:
   application:
-    name: zuulGateway
+    name: zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: zuul-gateway-service
 
 zuul:
   ribbon:
@@ -11,11 +18,13 @@ zuul:
       enabled: true
   sensitive-headers:
   routes:
+
     sendMessage:
-#      path: /sendmessage/**
+      path: /send/**
       serviceId: send-message
-#      stripPrefix: true
+      stripPrefix: true
+
     toAcceptMessage:
-      path: /acceptmessage/**
+      path: /accept/**
       serviceId: to-accept-message
       stripPrefix: true

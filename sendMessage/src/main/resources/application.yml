@@ -1,10 +1,11 @@
 server:
   port: 8081
-
-spring:
-  application:
-    name: sendMessage
 eureka:
-  server:
+  client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: send-message
+spring:
+  application:
+    name: send-message-service

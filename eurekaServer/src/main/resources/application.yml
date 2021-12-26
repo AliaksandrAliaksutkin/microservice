@@ -1,11 +1,11 @@
 spring:
   application:
-    name: eureka
-
+    name: eureka!
 server:
   port: 8761
-
 eureka:
+  instance:
+    instance-id: eureka-server
   client:
     registerWithEureka: true
     fetchRegistry: false
