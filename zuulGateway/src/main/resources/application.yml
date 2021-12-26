@@ -1,30 +1,30 @@
 server:
   port: 8080
 
-spring:
-  application:
-    name: zuul-gateway
-
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8888/eureka/
   instance:
-    instance-id: zuul-gateway-service
+    instance-id: zuul-server
+
+spring:
+  application:
+    name: zuul-server
 
 zuul:
   ribbon:
     eager-load:
       enabled: true
-  sensitive-headers:
-
   routes:
-   sendMessage:
+    send-message:
       path: /send/**
       serviceId: send-message
       stripPrefix: true
-
-    toAcceptMessage:
+    to-accept-message:
       path: /accept/**
       serviceId: to-accept-message
       stripPrefix: true
+
+
+

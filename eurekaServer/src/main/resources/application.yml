@@ -1,11 +1,17 @@
-spring:
-  application:
-    name: eureka!
 server:
-  port: 8761
+  port: 8888
+
 eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka
   instance:
     instance-id: eureka-server-service
-  client:
-    registerWithEureka: true
-    fetchRegistry: false
+
+spring:
+  application:
+    name: eureka

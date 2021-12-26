@@ -12,7 +12,7 @@ public class MainController {
 
     private final HelloService helloService;
 
-    @GetMapping("/accepthello")
+    @GetMapping("/hello")
     public String getCount(){
         return "Hello accepted " + helloService.getCount() + " once";
     }
